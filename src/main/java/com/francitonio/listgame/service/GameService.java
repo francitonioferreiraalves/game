@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.francitonio.listgame.dto.GameDTO;
 import com.francitonio.listgame.dto.GameMinDTO;
 import com.francitonio.listgame.entities.Game;
 import com.francitonio.listgame.repositories.GameRepository;
@@ -14,6 +15,11 @@ public class GameService {
 
 	@Autowired
 	private GameRepository gameRepository;
+
+	public GameDTO findById(Long listId) {
+		Game result = gameRepository.findById(listId).get();
+		return new GameDTO(result);
+	}
 
 	public List<GameMinDTO> findAll() {
 		List<Game> result = gameRepository.findAll();
