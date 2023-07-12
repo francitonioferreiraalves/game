@@ -16,8 +16,8 @@ public class GameService {
 	@Autowired
 	private GameRepository gameRepository;
 
-	public GameDTO findById(Long listId) {
-		Game result = gameRepository.findById(listId).get();
+	public GameDTO findById(Long id) {
+		Game result = gameRepository.findById(id).get();
 		return new GameDTO(result);
 	}
 
